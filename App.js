@@ -5,6 +5,7 @@ import ListingScreen from './app/screen/ListingScreen';
 import MessagesScreen from './app/screen/MessagesScreen';
 import ViewImageScreen from './app/screen/ViewImageScreen';
 import WelcomeScreen from './app/screen/WelcomeScreen';
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function App() {
   return (
@@ -18,6 +19,6 @@ export default function App() {
 
     // <ViewImageScreen/>
     // <ListingScreen/>
-    <MessagesScreen/> 
+    <GestureHandlerRootView><MessagesScreen/></GestureHandlerRootView>
   );
 }

@@ -1,18 +1,18 @@
 import React from 'react'
-import { Platform, StatusBar, StyleSheet, View } from 'react-native'
+import { Platform, SafeAreaView, StatusBar, StyleSheet } from 'react-native'
 
 export default function Screen(props) {
   return (
     <>
-        <View style = {styles.screenContainer}>
+        <SafeAreaView style = {styles.screenContainer}>
             {props.children}
-        </View>
+        </SafeAreaView>
     </>
   )
 }
 const styles = StyleSheet.create({
     screenContainer: {
-        marginTop : Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+        paddingTop : Platform.OS === 'android' ? StatusBar.currentHeight : 0,
 
     },
 })
