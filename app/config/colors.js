@@ -4,6 +4,7 @@ const colors = {
     primary : '#fc5c65',
     secondary: '#4ecdc4',
     light : '#f8f4f4',
+    danger : 'red'
 
 }
 

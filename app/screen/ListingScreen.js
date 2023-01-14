@@ -1,56 +1,48 @@
+import { View, Text, FlatList } from 'react-native'
 import React from 'react'
-import { Image, StatusBar, StyleSheet, Text, View } from 'react-native';
-import ListItems from '../components/ListItems';
+import Screen from '../components/Screen'
+import Card from '../components/Card'
+import ListItemSeperator from '../components/ListItemSeperator'
 
-export default function ListingScreen(props) {
+
+const listing =[
+    {
+        id: 1,
+        title : 'Red jacket for sale',
+        price : 100,
+        image : require('../assets/jacket.jpg')
+
+    },
+    {
+        id: 2,
+        title : 'Couch for sale',
+        price : 1000,
+        image : require('../assets/couch.jpg')
+
+    },
+    {
+        id: 3,
+        title : 'Couch for sale',
+        price : 1000,
+        image : require('../assets/couch.jpg')
+
+    },
+    {
+        id: 4,
+        title : 'Couch for sale',
+        price : 1000,
+        image : require('../assets/couch.jpg')
+
+    },
+]
+export default function ListingScreen() {
   return (
-    <View style = {styles.container}>
-        <View style= {styles.section1}>
-            <Image style = {styles.image} source = {require('../assets/jacket.jpg')}/>
-            <View style = {styles.textContainer} >
-                <Text style = {styles.title}>{props.title || 'Title'}</Text>
-                <Text style = {styles.subTitle}>{props.subTitle || 'Sub-title'}</Text>
-            </View>
-            
-            <ListItems
-                title = {props.title}
-                subTitle = {props.subTitle}
-                image = {props.profileImage}
-            />
-        </View>
-        
-    </View>
-  );
+    <Screen>
+        <FlatList
+            data = {listing}
+            keyExtractor = {(item)=>item.id}
+            renderItem = {({item})=><Card title = {item.title} subTitle = {`$${item.price}`} image = {item.image}/>}
+        />
+    </Screen>
+  )
 }
-const styles = StyleSheet.create({
-    container: {
-        marginTop : StatusBar.currentHeight,
-
-        height: '100%',
-        width: '100%'
-    },
-    section1: {
-        width: '100%',
-        paddingVertical : 10,
-    },
-    image: {
-        height : 200,
-        width : '100%'
-    },
-    textContainer :{
-        paddingHorizontal: 20,
-        paddingVertical: 20,
-    },
-    title :{
-        fontSize: 18,
-        fontWeight: '500',
-    },
-    subTitle :{
-        fontSize: 18,
-    },
-    // container: {},
-    // container: {},
-
-
-    
-})

@@ -9,19 +9,22 @@ export default function ListItems(props) {
             <GestureHandlerRootView>
                 <Swipeable renderRightActions = {props.renderRightActions}>
                     <TouchableHighlight onPress={props.onPress} underlayColor={colors.light}>
-                        <View style={styles.profileDetail} >
-                            <View style={styles.profileIconBox}>
-                                <Image style={styles.profileIcon} source={props.image || require('../assets/naman.png')} />
-                            </View>
+                        <View style={[styles.profileDetail, {backgroundColor : props.backgroundColor || colors.white}]} >
+                            {props.IconComponent}
+                            {props.image && <Image style={styles.profileIcon} source={props.image || require('../assets/naman.png')} />}
+                            {/* <View style={styles.profileIconBox}>
+                            </View> */}
                             <View style={styles.profileDetailsBox}>
                                 <Text style={styles.title}>{props.title || 'Naman Goyal'}</Text>
-                                <Text style={styles.subTitle}>{props.subTitle || '10 listing'}</Text>
+                                {props.subTitle && <Text style={styles.subTitle}>{props.subTitle}</Text>}
                             </View>
                         </View>
                     </TouchableHighlight>
                 </Swipeable>
             </GestureHandlerRootView>
     )
+
+    
 }
 const styles = StyleSheet.create({
     // profile details 
@@ -30,17 +33,26 @@ const styles = StyleSheet.create({
         padding: 15
     },
     profileIconBox: {
-        height: 75,
-        width: 75,
+        height: 60,
+        width: 60,
     },
     profileIcon: {
-        height: '100%',
-        width: '100%',
+        height: 60,
+        width: 60,
         borderRadius: 50
     },
     profileDetailsBox: {
         paddingLeft: 20,
         justifyContent: 'center',
     },
+    title:{
+        fontWeight: '500',
+        fontSize : 18,
+    },
+    subTitle:{
+        fontSize : 14,
+
+    },
+
 
 })

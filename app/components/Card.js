@@ -5,7 +5,7 @@ export default function Card(props) {
         <>
         <View style = {styles.shadowContainer}>
             <View style={styles.cardContainer}>
-                <Image style={styles.cardImage} source={require('../assets/jacket.jpg')} />
+                <Image style={styles.cardImage} source={props.image} />
                 <View style = {styles.textContainer}>
                     <Text style = {styles.title}>{props.title || 'Title'}</Text>
                     <Text style = {styles.subTitle}>{props.subTitle || 'Sub-title'} </Text>
@@ -17,6 +17,7 @@ export default function Card(props) {
 }
 const styles = StyleSheet.create({
     shadowContainer:{
+        marginHorizontal : 15,
         marginVertical: 10,
         borderRadius: 15,
 
@@ -27,8 +28,8 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.20,
         shadowRadius: 1.41,
         elevation: 10,
-        shadowColor: '#52006A',
-        width: '100%',
+        shadowColor: '#000',
+        // width: '100%',
         height: 300,
         // backgroundColor: '#000',
 
